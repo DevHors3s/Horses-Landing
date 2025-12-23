@@ -1,7 +1,8 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import CyberButton from "../components/CyberButton"; // <--- Importamos el nuevo botón
+import CyberButton from "../components/CyberButton"; 
+import GlowButton from "../components/GlowButton";
 
 const fadeUpVariant: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -30,14 +31,14 @@ const Hero = () => {
         variants={containerVariants}
         className="max-w-5xl mx-auto z-10"
       >
-        {/* Etiqueta */}
+        {/* Etiqueta Superior */}
         <motion.div variants={fadeUpVariant} className="mb-6 flex justify-center">
            <span className="px-4 py-2 rounded-full bg-slate-800/50 text-cyan-400 text-sm font-medium border border-cyan-400/20 backdrop-blur-sm">
              ✨ INNOVATIVE DEVELOPMENT STUDIO
            </span>
         </motion.div>
 
-        {/* Título */}
+        {/* Título Principal */}
         <motion.h1
           variants={fadeUpVariant}
           className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight mb-8"
@@ -47,19 +48,19 @@ const Hero = () => {
           of Digital <span className="text-gradient">Experiences</span>
         </motion.h1>
 
-        {/* Texto */}
+        {/* Descripción (Con corrección de comillas) */}
         <motion.p
           variants={fadeUpVariant}
           className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto mb-12"
         >
           We craft cutting-edge software solutions that transform ideas into reality.
-          From concept to deployment, were your partner in digital innovation.
+          From concept to deployment, we&apos;re your partner in digital innovation.
         </motion.p>
 
-        {/* --- AQUÍ ESTÁN LOS BOTONES ACTUALIZADOS --- */}
+        {/* Grupo de Botones */}
         <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8">
           
-          {/* Usamos nuestro nuevo botón Cyberpunk */}
+          {/* 1. Botón Principal: Efecto Intenso (Cyber) */}
           <CyberButton>
             Start Project
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 group-hover:translate-x-1 transition-transform">
@@ -67,15 +68,15 @@ const Hero = () => {
             </svg>
           </CyberButton>
 
-          {/* Botón secundario "Glass" */}
-          <button className="px-8 py-4 rounded-xl font-bold text-slate-300 border border-slate-700/50 hover:bg-slate-800/50 hover:text-white hover:border-slate-500 transition-all w-full sm:w-auto cursor-pointer backdrop-blur-md">
+          {/* 2. Botón Secundario: Efecto Brillo Suave (Glow) */}
+          <GlowButton>
             View Our Work
-          </button>
+          </GlowButton>
 
         </motion.div>
       </motion.div>
 
-      {/* Glow de fondo */}
+      {/* Luz de fondo ambiental */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-blue-600/20 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
     </section>
   );

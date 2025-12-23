@@ -12,27 +12,27 @@ interface CyberButtonProps {
 const CyberButton = ({ children, onClick, className = "" }: CyberButtonProps) => {
   return (
     <motion.button
-      whileHover={{ scale: 1.02 }} // Pequeño efecto de "crecer"
-      whileTap={{ scale: 0.98 }}   // Pequeño efecto de "hundirse" al hacer click
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
       onClick={onClick}
       className={`relative group ${className}`}
     >
-      {/* CAPA 1: El "Resplandor" de fondo (la sombra desplazada) */}
-      {/* Se mueve y cambia de color al hacer hover */}
-      <div className="absolute inset-0 bg-lanier-to-r from-blue-600 to-purple-600 rounded-lg blur-[6px] opacity-70 transition-all duration-300 group-hover:blur-md group-hover:opacity-100 group-hover:-inset-1"></div>
+      {/* CAPA 1: SUPER GLOW (El cambio principal está aquí) */}
+      {/* Más opacidad base (60%) y colores más chillones (Cyan y Fucsia) */}
+      <div className="absolute inset-0 bg-linear-to-r from-cyan-500 via-purple-500 to-fuchsia-500 rounded-xl blur-[15px] opacity-60 transition-all duration-300 group-hover:blur-[30px] group-hover:opacity-100 group-hover:-inset-2"></div>
       
-      {/* CAPA 2: El borde neón animado */}
-      {/* Gira alrededor del botón */}
-      <div className="absolute -inset-0.5 bg-lanier-to-r from-blue-500 via-purple-500 to-blue-500 rounded-lg opacity-30 blur-sm transition-all duration-500 group-hover:opacity-100 animate-spin-slow group-hover:animate-spin-fast"></div>
+      {/* CAPA 2: Borde giratorio más intenso */}
+      <div className="absolute -inset-0.5 bg-linear-to-r from-cyan-400 via-white to-fuchsia-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-spin-slow group-hover:animate-spin-fast mix-blend-screen"></div>
 
-      {/* CAPA 3: El botón principal (el frente) */}
-      <div className="relative px-8 py-4 bg-[#0A0F1C] rounded-lg border border-blue-500/30 text-white font-bold tracking-wider overflow-hidden">
+      {/* CAPA 3: Cuerpo del botón */}
+      <div className="relative px-8 py-4 bg-[#0A0F1C] rounded-lg border border-white/10 text-white font-bold tracking-wider overflow-hidden flex items-center gap-2 z-10 group-hover:border-white/50 transition-colors shadow-2xl">
         
-        {/* Efecto de "escaneo" de luz al pasar el mouse */}
-        <div className="absolute top-0 -left-full w-1/2 h-full bg-lanier-to-r from-transparent via-white/20 to-transparent skew-x-30 transition-all duration-700 group-hover:left-[150%]"></div>
+        {/* Efecto de luz "Scan" mucho más fuerte */}
+        <div className="absolute top-0 -left-full w-2/3 h-full bg-linear-to-r from-transparent via-white/40 to-transparent skew-x-30 transition-all duration-500 group-hover:left-[200%]"></div>
         
-        <span className="relative z-10 flex items-center gap-2">
-          {children}
+        {/* El contenido */}
+        <span className="relative z-20 flex items-center gap-2 drop-shadow-md">
+           {children}
         </span>
       </div>
     </motion.button>
