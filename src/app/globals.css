@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  /* --- COLORES PERSONALIZADOS --- */
+  --color-primary-start: #3b82f6;
+  --color-primary-end: #a855f7;
+  --image-gradient-primary: linear-gradient(to right, var(--color-primary-start), var(--color-primary-end));
+
+  /* --- NUEVAS ANIMACIONES PERSONALIZADAS --- */
+  --animate-spin-slow: spin 8s linear infinite;
+  --animate-spin-fast: spin 3s linear infinite;
+}
+
+/* --- ESTILOS BASE --- */
+:root {
+  background-color: #0A0F1C;
+  color: #ffffff;
+}
+
+body {
+  background-color: #0A0F1C;
+  /* Fondo de cuadrícula sutil */
+  background-image: linear-gradient(#1a1f2e 1px, transparent 1px),
+    linear-gradient(to right, #1a1f2e 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent;
+  background-image: var(--image-gradient-primary);
+}
