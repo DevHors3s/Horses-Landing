@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useLanguage } from "../context/LanguageContext"; // 👈 Hook
 import { Github, Linkedin, Mail, ArrowUpRight, Heart } from "lucide-react";
 
 export default function Footer() {
+  const { t } = useLanguage(); // 👈 Hook
   const currentYear = new Date().getFullYear();
 
   return (
@@ -22,7 +24,7 @@ export default function Footer() {
               Dev<span className="text-cyan-400">Horses</span>.
             </Link>
             <p className="text-gray-400 leading-relaxed max-w-sm mb-6">
-              Transformamos ideas en software de alto impacto. Especialistas en arquitecturas escalables y experiencias digitales inmersivas.
+              {t("footer_desc")}
             </p>
             <div className="flex gap-4">
               <SocialIcon href="https://github.com/Mathifa59" icon={<Github size={20} />} />
@@ -33,18 +35,19 @@ export default function Footer() {
 
           {/* COLUMNA 2: NAVEGACIÓN */}
           <div>
-            <h3 className="text-white font-bold mb-6">Explorar</h3>
+            <h3 className="text-white font-bold mb-6">{t("footer_explore")}</h3>
             <ul className="space-y-4">
-              <FooterLink href="/" text="Inicio" />
-              <FooterLink href="/servicios" text="Servicios" />
-              <FooterLink href="/proyectos" text="Proyectos" />
-              <FooterLink href="/nosotros" text="Nosotros" />
+              {/* Usamos las claves de navegación que ya teníamos */}
+              <FooterLink href="/" text={t("nav_home")} />
+              <FooterLink href="/servicios" text={t("nav_services")} />
+              <FooterLink href="/proyectos" text={t("nav_projects")} />
+              <FooterLink href="/nosotros" text={t("nav_about")} />
             </ul>
           </div>
 
-          {/* COLUMNA 3: LEGAL / EXTRA */}
+          {/* COLUMNA 3: LEGAL */}
           <div>
-            <h3 className="text-white font-bold mb-6">Legal</h3>
+            <h3 className="text-white font-bold mb-6">{t("footer_legal")}</h3>
             <ul className="space-y-4">
               <FooterLink href="#" text="Privacidad" />
               <FooterLink href="#" text="Términos" />
@@ -56,14 +59,14 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* BARRA INFERIOR (COPYRIGHT) */}
+        {/* BARRA INFERIOR */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            © {currentYear} DevHorses. Todos los derechos reservados.
+            © {currentYear} DevHorses. {t("footer_rights")}
           </p>
           
           <div className="flex items-center gap-2 text-sm text-gray-500">
-            <span>Codeado con</span>
+            <span>{t("footer_coded")}</span>
             <Heart size={14} className="text-red-500 fill-red-500/20" />
             <span>y mucho café.</span>
           </div>
@@ -74,7 +77,6 @@ export default function Footer() {
   );
 }
 
-// Componente para los enlaces
 function FooterLink({ href, text }: { href: string, text: string }) {
   return (
     <li>
@@ -86,7 +88,6 @@ function FooterLink({ href, text }: { href: string, text: string }) {
   )
 }
 
-// Componente para iconos sociales
 function SocialIcon({ href, icon }: { href: string, icon: React.ReactNode }) {
   return (
     <a 

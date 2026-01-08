@@ -1,60 +1,64 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 import Link from "next/link";
-import { Github, ArrowRight, Layers } from "lucide-react"; // <-- ExternalLink eliminado
+import { Github, ArrowRight, Layers } from "lucide-react";
 
-// 1. DEFINIMOS EL TIPO DE DATOS (Para que TypeScript no se queje del 'any')
 interface Project {
   id: number;
   title: string;
   description: string;
   tags: string[];
-  linear: string;
+  gradient: string;
   link: string;
   github: string;
 }
 
-const projectsData: Project[] = [
-  {
-    id: 1,
-    title: "Neon Commerce",
-    description: "Plataforma de e-commerce headless con integración de pagos cripto y UI futurista de alto rendimiento.",
-    tags: ["Next.js", "Stripe", "Tailwind"],
-    linear: "from-cyan-500 to-blue-500",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: 2,
-    title: "CyberAnalytics Dashboard",
-    description: "Panel de control en tiempo real para visualización de datos masivos con gráficos D3.js y WebSockets.",
-    tags: ["React", "D3.js", "Node.js"],
-    linear: "from-purple-500 to-pink-500",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: 3,
-    title: "Quantum Portfolio",
-    description: "Experiencia web inmersiva con animaciones 3D y transiciones fluidas utilizando Framer Motion.",
-    tags: ["Three.js", "Framer", "TypeScript"],
-    linear: "from-emerald-400 to-cyan-500",
-    link: "#",
-    github: "#",
-  },
-  {
-    id: 4,
-    title: "AI Chat Interface",
-    description: "Interfaz de chat impulsada por IA con streaming de respuestas y resaltado de sintaxis en tiempo real.",
-    tags: ["OpenAI", "Vercel SDK", "Redis"],
-    linear: "from-orange-400 to-red-500",
-    link: "#",
-    github: "#",
-  },
-];
-
 export default function ProjectsSection() {
+  const { t } = useLanguage();
+
+  // ✅ CORRECCIÓN: La lista de datos ahora está DENTRO del componente
+  // Así puede usar la función t() y actualizarse en tiempo real.
+  const projectsData: Project[] = [
+    {
+      id: 1,
+      title: "Neon Commerce",
+      description: t("project_1_desc"), // Usa la clave del LanguageContext
+      tags: ["Next.js", "Stripe", "Tailwind"],
+      gradient: "from-cyan-500 to-blue-500",
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 2,
+      title: "CyberAnalytics Dashboard",
+      description: t("project_2_desc"),
+      tags: ["React", "D3.js", "Node.js"],
+      gradient: "from-purple-500 to-pink-500",
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 3,
+      title: "Quantum Portfolio",
+      description: t("project_3_desc"),
+      tags: ["Three.js", "Framer", "TypeScript"],
+      gradient: "from-emerald-400 to-cyan-500",
+      link: "#",
+      github: "#",
+    },
+    {
+      id: 4,
+      title: "AI Chat Interface",
+      description: t("project_4_desc"),
+      tags: ["OpenAI", "Vercel SDK", "Redis"],
+      gradient: "from-orange-400 to-red-500",
+      link: "#",
+      github: "#",
+    },
+  ];
+
   return (
     <section className="relative min-h-screen py-20 px-4 md:px-8 bg-[#0A0F1C] overflow-hidden">
       
@@ -74,7 +78,7 @@ export default function ProjectsSection() {
             <div className="p-2 bg-cyan-950/30 border border-cyan-500/30 rounded-lg">
               <Layers className="text-cyan-400" size={20} />
             </div>
-            <span className="text-cyan-400 font-mono text-sm tracking-wider">PORTFOLIO V.1.0</span>
+            <span className="text-cyan-400 font-mono text-sm tracking-wider">{t("projects_badge")}</span>
           </motion.div>
 
           <motion.h1 
@@ -84,7 +88,7 @@ export default function ProjectsSection() {
             transition={{ delay: 0.1 }}
             className="text-4xl md:text-6xl font-bold text-white mb-6"
           >
-            Nuestros <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-purple-500">Proyectos</span>
+            {t("projects_title")}
           </motion.h1>
           
           <motion.p 
@@ -93,7 +97,7 @@ export default function ProjectsSection() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 max-w-2xl text-lg"
           >
-            Explora una selección de nuestro trabajo donde fusionamos ingeniería robusta con diseño de vanguardia.
+            {t("projects_subtitle")}
           </motion.p>
         </div>
 
@@ -109,8 +113,9 @@ export default function ProjectsSection() {
   );
 }
 
-// 2. CORREGIMOS EL TIPO AQUÍ ABAJO TAMBIÉN
 function ProjectCard({ project, index }: { project: Project, index: number }) {
+  const { t } = useLanguage(); 
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -119,17 +124,14 @@ function ProjectCard({ project, index }: { project: Project, index: number }) {
       transition={{ delay: index * 0.1 }}
       className="group relative"
     >
-      {/* Efecto Glow trasero al Hover */}
-      <div className={`absolute -inset-0.5 bg-linear-to-r ${project.linear} rounded-2xl blur opacity-0 group-hover:opacity-40 transition duration-500 group-hover:duration-200`} />
+      <div className={`absolute -inset-0.5 bg-linear-to-r ${project.gradient} rounded-2xl blur opacity-0 group-hover:opacity-40 transition duration-500 group-hover:duration-200`} />
 
       <div className="relative h-full bg-[#0d121f] border border-white/10 rounded-2xl overflow-hidden flex flex-col md:flex-row hover:border-white/20 transition-colors">
         
-        {/* "Imagen" (Placeholder visual con lineare) */}
-        <div className={`w-full md:w-2/5 h-48 md:h-auto bg-linear-to-br ${project.linear} opacity-20 group-hover:opacity-30 transition-opacity flex items-center justify-center`}>
+        <div className={`w-full md:w-2/5 h-48 md:h-auto bg-linear-to-br ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity flex items-center justify-center`}>
           <Layers size={48} className="text-white/50" />
         </div>
 
-        {/* Contenido */}
         <div className="p-6 md:p-8 flex flex-col grow">
           <div className="mb-4">
              <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
@@ -150,10 +152,10 @@ function ProjectCard({ project, index }: { project: Project, index: number }) {
 
           <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/5">
             <Link href={project.link} className="flex items-center gap-2 text-white font-medium hover:text-cyan-400 transition-colors text-sm">
-              Ver Demo <ArrowRight size={16} />
+              {t("projects_btn_demo")} <ArrowRight size={16} />
             </Link>
             <Link href={project.github} className="flex items-center gap-2 text-gray-500 hover:text-white transition-colors text-sm ml-auto">
-              <Github size={18} /> Código
+              <Github size={18} /> {t("projects_btn_code")}
             </Link>
           </div>
         </div>
