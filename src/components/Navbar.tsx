@@ -9,7 +9,6 @@ import { Globe } from "lucide-react";
 export default function Navbar() {
   const pathname = usePathname();
   const { language, toggleLanguage, t } = useLanguage();
-
   const links = [
     { name: t("nav_home"), href: "/" },
     { name: t("nav_services"), href: "/servicios" },
