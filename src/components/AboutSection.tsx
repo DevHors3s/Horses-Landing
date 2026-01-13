@@ -2,47 +2,62 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
-import { Github, Linkedin, Terminal, Cpu, Code2, Globe, Mail, ArrowRight } from "lucide-react";
+import { 
+  Github, Linkedin, Mail, ArrowRight, Code2, 
+  Palette, Server, Cloud, LineChart 
+} from "lucide-react";
 
 export default function AboutSection() {
   const { t } = useLanguage();
 
+  // DEFINICIÓN DEL EQUIPO (4 MIEMBROS)
   const team = [
     {
       name: "Mathias Vasquez",
       role: t("team_1_role"),
       bio: t("team_1_bio"),
-      icon: <Terminal size={32} />,
+      icon: <Palette size={32} />, // UI/UX
       color: "text-cyan-400",
       border: "group-hover:border-cyan-500/50"
     },
     {
-      name: "Sofia Design",
+      name: "Diego Flores",
       role: t("team_2_role"),
       bio: t("team_2_bio"),
-      icon: <Globe size={32} />,
+      icon: <Server size={32} />, // Backend
       color: "text-purple-400",
       border: "group-hover:border-purple-500/50"
     },
     {
-      name: "Alex Backend",
+      name: "Gabriel Garcia",
       role: t("team_3_role"),
       bio: t("team_3_bio"),
-      icon: <Cpu size={32} />,
+      icon: <Cloud size={32} />, // DevOps/Despliegue
       color: "text-emerald-400",
       border: "group-hover:border-emerald-500/50"
+    },
+    {
+      name: "Fabricio Apaza",
+      role: t("team_4_role"),
+      bio: t("team_4_bio"),
+      icon: <LineChart size={32} />, // Sistemas/Datos
+      color: "text-orange-400",
+      border: "group-hover:border-orange-500/50"
     }
   ];
 
   return (
     <section className="relative min-h-screen py-20 px-4 bg-[#0A0F1C] overflow-hidden">
+      
+      {/* Luces decorativas */}
       <div className="absolute top-20 right-0 w-125 h-125 bg-purple-600/10 rounded-full blur-[120px] -z-10" />
       <div className="absolute bottom-0 left-0 w-100 h-100 bg-cyan-600/10 rounded-full blur-[100px] -z-10" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
+        
+        {/* PARTE 1: INTRO / MISIÓN */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
           
-          {/* TEXTO IZQUIERDA */}
           <motion.div 
              initial={{ opacity: 0, x: -50 }}
              whileInView={{ opacity: 1, x: 0 }}
@@ -74,7 +89,7 @@ export default function AboutSection() {
             </div>
           </motion.div>
 
-          {/* CAJA DE CÓDIGO DERECHA (CORREGIDA) */}
+          {/* CAJA DE CÓDIGO */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -88,7 +103,6 @@ export default function AboutSection() {
                  <div className="w-3 h-3 rounded-full bg-green-500/50"/>
                </div>
                
-               {/* AQUÍ ESTABA EL ERROR: Usamos &quot; y llaves {} */}
                <div className="space-y-3 font-mono text-sm">
                  <div className="text-gray-500">{t("about_mission_comment")}</div>
                  <div className="text-purple-400">const <span className="text-white">mission</span> = <span className="text-yellow-300">{"{"}</span></div>
@@ -97,13 +111,12 @@ export default function AboutSection() {
                  <div className="pl-4 text-cyan-300">limit: <span className="text-red-400">null</span></div>
                  <div className="text-yellow-300">{"}"};</div>
                </div>
-
             </div>
             <div className="absolute -top-4 -right-4 w-full h-full border border-white/5 rounded-2xl -z-10 bg-white/5" />
           </motion.div>
         </div>
 
-        {/* EQUIPO */}
+        {/* PARTE 2: EL ESCUADRÓN (4 COLUMNAS) */}
         <div className="mb-32">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -115,7 +128,8 @@ export default function AboutSection() {
              </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* GRID CONFIGURADO PARA 4 PERSONAS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, index) => (
               <motion.div
                 key={index}
@@ -128,9 +142,13 @@ export default function AboutSection() {
                 <div className={`mb-6 p-4 rounded-xl bg-white/5 w-fit ${member.color}`}>
                   {member.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-1">{member.name}</h3>
-                <p className={`text-xs font-bold uppercase tracking-wider mb-4 ${member.color}`}>{member.role}</p>
-                <p className="text-gray-400 text-sm mb-6 min-h-15">{member.bio}</p>
+                
+                <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
+                <p className={`text-[10px] font-bold uppercase tracking-wider mb-4 ${member.color}`}>{member.role}</p>
+                <p className="text-gray-400 text-xs mb-6 min-h-15 leading-relaxed">
+                  {member.bio}
+                </p>
+
                 <div className="flex gap-3 pt-4 border-t border-white/5">
                   <SocialBtn icon={<Github size={16}/>} />
                   <SocialBtn icon={<Linkedin size={16}/>} />
@@ -140,7 +158,7 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* CTA */}
+        {/* PARTE 3: CTA FINAL */}
         <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -148,13 +166,23 @@ export default function AboutSection() {
             className="relative p-10 md:p-16 rounded-3xl overflow-hidden text-center border border-white/10"
         >
             <div className="absolute inset-0 bg-linear-to-br from-cyan-900/20 via-[#0d121f] to-purple-900/20 backdrop-blur-xl z-0" />
+            
             <div className="relative z-10 flex flex-col items-center">
                 <div className="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center mb-6 border border-white/10">
                     <Mail className="text-white" size={32} />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{t("cta_title")}</h3>
-                <p className="text-gray-300 mb-8 max-w-xl text-lg">{t("cta_desc")}</p>
-                <a href="mailto:hola@devhorses.com" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-cyan-300 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(103,232,249,0.5)] group">
+
+                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                    {t("cta_title")}
+                </h3>
+                <p className="text-gray-300 mb-8 max-w-xl text-lg">
+                    {t("cta_desc")}
+                </p>
+                
+                <a 
+                    href="mailto:hola@devhorses.com" 
+                    className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-cyan-300 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(103,232,249,0.5)] group"
+                >
                     <Mail size={20} />
                     {t("cta_btn")}
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
