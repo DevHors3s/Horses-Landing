@@ -18,30 +18,40 @@ export default function AboutSection() {
       role: t("team_1_role"),
       bio: t("team_1_bio"),
       icon: <Monitor size={28} />,
+      color: "text-cyan-400",
+      hoverBorder: "group-hover:border-cyan-500/40",
     },
     {
       name: "Aixa Vasquez",
       role: t("team_5_role"),
       bio: t("team_5_bio"),
       icon: <Palette size={28} />,
+      color: "text-pink-400",
+      hoverBorder: "group-hover:border-pink-500/40",
     },
     {
       name: "Diego Flores",
       role: t("team_2_role"),
       bio: t("team_2_bio"),
       icon: <Server size={28} />,
+      color: "text-purple-400",
+      hoverBorder: "group-hover:border-purple-500/40",
     },
     {
       name: "Gabriel Garcia",
       role: t("team_3_role"),
       bio: t("team_3_bio"),
       icon: <Cloud size={28} />,
+      color: "text-emerald-400",
+      hoverBorder: "group-hover:border-emerald-500/40",
     },
     {
       name: "Fabricio Apaza",
       role: t("team_4_role"),
       bio: t("team_4_bio"),
       icon: <LineChart size={28} />,
+      color: "text-orange-400",
+      hoverBorder: "group-hover:border-orange-500/40",
     }
   ];
 
@@ -128,14 +138,14 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: EASE, delay: index * 0.08 }}
                 viewport={{ once: true, margin: "-40px" }}
-                className="group p-6 rounded-sm bg-surface border border-line hover:border-accent/40 transition-all duration-500"
+                className={`group p-6 rounded-sm bg-surface border border-line transition-all duration-500 ${member.hoverBorder}`}
               >
-                <div className="mb-6 p-3.5 rounded-sm border border-line w-fit text-accent transition-colors duration-500 group-hover:border-accent/40">
+                <div className={`mb-6 p-3.5 rounded-sm border border-line w-fit transition-colors duration-500 ${member.color} ${member.hoverBorder}`}>
                   {member.icon}
                 </div>
 
                 <h3 className="font-display text-ink text-lg mb-1">{member.name}</h3>
-                <p className="eyebrow mb-4 text-accent">{member.role}</p>
+                <p className={`eyebrow mb-4 ${member.color}`}>{member.role}</p>
                 <p className="text-muted text-xs leading-relaxed mb-6 min-h-15">
                   {member.bio}
                 </p>
