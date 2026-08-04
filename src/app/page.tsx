@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-bg">
       <Hero />
+      <SaasShowcase />
       <Services />
       <Process />
       <ProjectsSection />
-      <SaasShowcase />
       <Testimonials />
       <DemoShowcase />
       <Contact />

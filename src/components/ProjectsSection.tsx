@@ -22,20 +22,20 @@ export default function ProjectsSection() {
 
   const projectsData: Project[] = [
     {
-      id: 1,
-      title: "MV Abogados",
-      description: t("project_1_desc"),
-      tags: ["Servicios legales", "Lima"],
-      link: "https://mv-abogados.vercel.app/",
-      thumbnail: "/abogados-mini.png",
-    },
-    {
       id: 2,
       title: "Apu Garden Lodge",
       description: t("project_2_desc"),
       tags: ["Hospedaje", "SaaS de Gestión"],
       link: "https://apu-garden-lodge.com/",
       thumbnail: "/apu web mini.png",
+    },
+    {
+      id: 1,
+      title: "MV Abogados",
+      description: t("project_1_desc"),
+      tags: ["Servicios legales", "Lima"],
+      link: "https://mv-abogados.vercel.app/",
+      thumbnail: "/abogados-mini.png",
     },
     {
       id: 3,
