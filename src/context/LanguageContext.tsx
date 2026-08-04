@@ -337,7 +337,7 @@ const translations: Record<Language, Translations> = {
     // SaaS Showcase — Apu Gestión
     saas_eyebrow: "PRODUCTO PROPIO · SAAS A MEDIDA",
     saas_title_1: "No solo hicimos su web. Construimos ",
-    saas_title_gradient: "el sistema que corre su hotel",
+    saas_title_gradient: "el sistema operativo de su hotel",
     saas_desc: "Para Apu Garden Lodge (Urubamba, Valle Sagrado) fuimos más allá de una landing: desarrollamos el software de gestión hotelera que usan todos los días — mapa de cuartos en vivo, reservas, cargos, frigobar y reportes, conectado en tiempo real a su web de reservas.",
     saas_tab_1: "Mapa de cuartos",
     saas_tab_2: "Detalle de cuarto",
@@ -522,7 +522,7 @@ const translations: Record<Language, Translations> = {
     // SaaS Showcase — Apu Gestión
     saas_eyebrow: "FEATURED CASE · CUSTOM-BUILT SAAS",
     saas_title_1: "We didn't just build their website. We built ",
-    saas_title_gradient: "the system that runs their hotel",
+    saas_title_gradient: "their hotel's operating system",
     saas_desc: "For Apu Garden Lodge (Urubamba, Sacred Valley) we went beyond a landing page: we built the hotel-management software the team uses every day — live room map, bookings, charges, minibar and reports, connected in real time to their booking site.",
     saas_tab_1: "Room map",
     saas_tab_2: "Room detail",
