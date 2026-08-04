@@ -61,7 +61,7 @@ export default function SaasShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-10 items-start">
 
           {/* COLUMNA IZQUIERDA — narrativa */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -169,7 +169,7 @@ export default function SaasShowcase() {
           </div>
 
           {/* COLUMNA DERECHA — mockup interactivo */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <DeviceMockup />
           </div>
         </div>
