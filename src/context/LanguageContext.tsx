@@ -147,6 +147,37 @@ export type Translations = {
   demo_cta_title: string;
   demo_cta_btn: string;
 
+  // SaaS Showcase — Apu Gestión
+  saas_eyebrow: string;
+  saas_title_1: string;
+  saas_title_gradient: string;
+  saas_desc: string;
+  saas_tab_1: string;
+  saas_tab_2: string;
+  saas_tab_3: string;
+  saas_feat_1_title: string;
+  saas_feat_1_desc: string;
+  saas_feat_2_title: string;
+  saas_feat_2_desc: string;
+  saas_feat_3_title: string;
+  saas_feat_3_desc: string;
+  saas_feat_4_title: string;
+  saas_feat_4_desc: string;
+  saas_feat_5_title: string;
+  saas_feat_5_desc: string;
+  saas_feat_6_title: string;
+  saas_feat_6_desc: string;
+  saas_stat_1_value: string;
+  saas_stat_1_label: string;
+  saas_stat_2_value: string;
+  saas_stat_2_label: string;
+  saas_stat_3_value: string;
+  saas_stat_3_label: string;
+  saas_phone_caption: string;
+  saas_live_badge: string;
+  saas_cta_public: string;
+  saas_cta_want: string;
+
   // CTA
   cta_title: string;
   cta_desc: string;
@@ -303,6 +334,37 @@ const translations: Record<Language, Translations> = {
     demo_cta_title: "¿Te gustaría algo así para tu negocio?",
     demo_cta_btn: "Hablemos por WhatsApp",
 
+    // SaaS Showcase — Apu Gestión
+    saas_eyebrow: "PRODUCTO PROPIO · SAAS A MEDIDA",
+    saas_title_1: "No solo hicimos su web. Construimos ",
+    saas_title_gradient: "el sistema que corre su hotel",
+    saas_desc: "Para Apu Garden Lodge (Urubamba, Valle Sagrado) fuimos más allá de una landing: desarrollamos el software de gestión hotelera que usan todos los días — mapa de cuartos en vivo, reservas, cargos, frigobar y reportes, conectado en tiempo real a su web de reservas.",
+    saas_tab_1: "Mapa de cuartos",
+    saas_tab_2: "Detalle de cuarto",
+    saas_tab_3: "Nueva reserva",
+    saas_feat_1_title: "Mapa de cuartos en vivo",
+    saas_feat_1_desc: "Estado de cada habitación actualizado al instante para todo el equipo, sin recargar la página.",
+    saas_feat_2_title: "Reservas conectadas",
+    saas_feat_2_desc: "La web pública consulta disponibilidad real y crea la reserva ahí mismo, sin doble registro.",
+    saas_feat_3_title: "Cargos y frigobar",
+    saas_feat_3_desc: "Consumo, cargos y folio de cada huésped, sin planillas ni WhatsApp de por medio.",
+    saas_feat_4_title: "Voucher de reserva",
+    saas_feat_4_desc: "Constancia automática para cada huésped, lista para enviar en segundos.",
+    saas_feat_5_title: "Reportes en tiempo real",
+    saas_feat_5_desc: "Ocupación, ingresos y ADR del hotel sin armar una sola planilla a mano.",
+    saas_feat_6_title: "Roles para todo el equipo",
+    saas_feat_6_desc: "Recepción, limpieza y administración — cada uno con su propia vista y permisos.",
+    saas_stat_1_value: "+35%",
+    saas_stat_1_label: "reservas desde el sitio",
+    saas_stat_2_value: "3",
+    saas_stat_2_label: "roles de staff conectados",
+    saas_stat_3_value: "100%",
+    saas_stat_3_label: "operación en tiempo real",
+    saas_phone_caption: "Controlado desde el celular en recepción",
+    saas_live_badge: "En producción activa",
+    saas_cta_public: "Ver sitio público",
+    saas_cta_want: "Quiero un sistema así",
+
     // CTA
     cta_title: "¿Listo para empezar tu proyecto?",
     cta_desc: "Escribinos por WhatsApp y te respondemos de inmediato. Sin compromiso, sin vueltas.",
@@ -456,6 +518,37 @@ const translations: Record<Language, Translations> = {
     demo_btn_want: "I want something like this",
     demo_cta_title: "Would you like something like this for your business?",
     demo_cta_btn: "Let's chat on WhatsApp",
+
+    // SaaS Showcase — Apu Gestión
+    saas_eyebrow: "FEATURED CASE · CUSTOM-BUILT SAAS",
+    saas_title_1: "We didn't just build their website. We built ",
+    saas_title_gradient: "the system that runs their hotel",
+    saas_desc: "For Apu Garden Lodge (Urubamba, Sacred Valley) we went beyond a landing page: we built the hotel-management software the team uses every day — live room map, bookings, charges, minibar and reports, connected in real time to their booking site.",
+    saas_tab_1: "Room map",
+    saas_tab_2: "Room detail",
+    saas_tab_3: "New booking",
+    saas_feat_1_title: "Live room map",
+    saas_feat_1_desc: "Every room's status updated instantly for the whole team, no page reload needed.",
+    saas_feat_2_title: "Connected bookings",
+    saas_feat_2_desc: "The public site checks real availability and creates the booking right there — no double entry.",
+    saas_feat_3_title: "Charges & minibar",
+    saas_feat_3_desc: "Consumption, charges and each guest's folio, no spreadsheets or WhatsApp involved.",
+    saas_feat_4_title: "Booking voucher",
+    saas_feat_4_desc: "Automatic proof of reservation for every guest, ready to send in seconds.",
+    saas_feat_5_title: "Real-time reports",
+    saas_feat_5_desc: "Occupancy, revenue and ADR without building a single spreadsheet by hand.",
+    saas_feat_6_title: "Roles for the whole team",
+    saas_feat_6_desc: "Front desk, housekeeping and admin — each with their own view and permissions.",
+    saas_stat_1_value: "+35%",
+    saas_stat_1_label: "bookings from the site",
+    saas_stat_2_value: "3",
+    saas_stat_2_label: "staff roles connected",
+    saas_stat_3_value: "100%",
+    saas_stat_3_label: "real-time operation",
+    saas_phone_caption: "Run from a phone at the front desk",
+    saas_live_badge: "Live in production",
+    saas_cta_public: "View public site",
+    saas_cta_want: "I want a system like this",
 
     // CTA
     cta_title: "Ready to start your project?",

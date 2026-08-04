@@ -4,6 +4,7 @@ import Services from "../components/Services";
 import Process from "../components/Process";
 import Testimonials from "../components/Testimonials";
 import ProjectsSection from "../components/ProjectsSection";
+import SaasShowcase from "../components/SaasShowcase";
 import DemoShowcase from "../components/DemoShowcase";
 import Contact from "../components/Contact";
 
@@ -14,6 +15,7 @@ export default function Home() {
       <Services />
       <Process />
       <ProjectsSection />
+      <SaasShowcase />
       <Testimonials />
       <DemoShowcase />
       <Contact />
