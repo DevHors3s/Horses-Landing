@@ -7,160 +7,142 @@ import {
   Palette, Server, Cloud, LineChart, Monitor
 } from "lucide-react";
 
+const EASE = [0.22, 1, 0.36, 1] as const;
+
 export default function AboutSection() {
   const { t } = useLanguage();
 
-  // DEFINICIÓN DEL EQUIPO (4 MIEMBROS)
   const team = [
     {
       name: "Mathias Vasquez",
       role: t("team_1_role"),
       bio: t("team_1_bio"),
-      icon: <Monitor size={32} />,
-      color: "text-cyan-400",
-      border: "group-hover:border-cyan-500/50"
+      icon: <Monitor size={28} />,
     },
     {
-      name: "Arwen Vasquez",
+      name: "Aixa Vasquez",
       role: t("team_5_role"),
       bio: t("team_5_bio"),
-      icon: <Palette size={32} />,
-      color: "text-pink-400",
-      border: "group-hover:border-pink-500/50"
+      icon: <Palette size={28} />,
     },
     {
       name: "Diego Flores",
       role: t("team_2_role"),
       bio: t("team_2_bio"),
-      icon: <Server size={32} />,
-      color: "text-purple-400",
-      border: "group-hover:border-purple-500/50"
+      icon: <Server size={28} />,
     },
     {
       name: "Gabriel Garcia",
       role: t("team_3_role"),
       bio: t("team_3_bio"),
-      icon: <Cloud size={32} />,
-      color: "text-emerald-400",
-      border: "group-hover:border-emerald-500/50"
+      icon: <Cloud size={28} />,
     },
     {
       name: "Fabricio Apaza",
       role: t("team_4_role"),
       bio: t("team_4_bio"),
-      icon: <LineChart size={32} />,
-      color: "text-orange-400",
-      border: "group-hover:border-orange-500/50"
+      icon: <LineChart size={28} />,
     }
   ];
 
   return (
-    <section className="relative min-h-screen py-16 md:py-20 px-4 md:px-6 bg-[#0A0F1C] overflow-hidden">
-      
-      {/* Luces decorativas */}
-      <div className="absolute top-20 right-0 w-125 h-125 bg-purple-600/10 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-100 h-100 bg-cyan-600/10 rounded-full blur-[100px] -z-10" />
+    <section className="relative py-24 md:py-36 bg-bg overflow-hidden">
+      {/* Halo ambiental */}
+      <div className="absolute top-0 left-1/4 w-[60vw] h-[60vh] glow-accent pointer-events-none opacity-70" />
 
-      <div className="max-w-7xl mx-auto">
-        
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-16 md:px-24">
+
         {/* PARTE 1: INTRO / MISIÓN */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center mb-16 md:mb-32">
-          
-          <motion.div 
-             initial={{ opacity: 0, x: -50 }}
-             whileInView={{ opacity: 1, x: 0 }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24 md:mb-36">
+
+          <motion.div
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
+             transition={{ duration: 0.9, ease: EASE }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/20 border border-purple-500/20 text-purple-400 text-xs font-mono mb-6">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-              </span>
-              {t("about_badge")}
-            </div>
-            
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 md:mb-6 leading-tight">
-              {t("about_title_1")} <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-cyan-400">
-                {t("about_title_gradient")}
-              </span>
+            <span className="eyebrow block mb-6">( {t("about_badge")} )</span>
+
+            <h1 className="font-display text-ink text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight mb-8">
+              {t("about_title_1")} <em className="text-gradient-accent italic">{t("about_title_gradient")}</em>
             </h1>
-            
-            <p className="text-gray-400 text-base md:text-lg leading-relaxed mb-6 md:mb-8">
+
+            <p className="text-muted text-base md:text-lg leading-relaxed max-w-xl mb-10">
               {t("about_desc")}
             </p>
 
-            <div className="flex flex-wrap gap-4 md:gap-6">
-              <Stats number="2" label={t("about_stats_clients")} />
-              <Stats number="5" label={t("about_stats_industries")} />
-              <Stats number="100%" label={t("about_stats_commitment")} />
+            <div className="flex flex-wrap gap-x-10 gap-y-6">
+              <Stat number="2" label={t("about_stats_clients")} />
+              <Stat number="5" label={t("about_stats_industries")} />
+              <Stat number="100%" label={t("about_stats_commitment")} />
             </div>
           </motion.div>
 
           {/* CAJA DE CÓDIGO */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: EASE, delay: 0.15 }}
             className="relative"
           >
-            <div className="rounded-2xl bg-[#0d121f] border border-white/10 p-6 relative z-10 shadow-2xl">
-               <div className="flex gap-2 mb-4">
-                 <div className="w-3 h-3 rounded-full bg-red-500/50"/>
-                 <div className="w-3 h-3 rounded-full bg-yellow-500/50"/>
-                 <div className="w-3 h-3 rounded-full bg-green-500/50"/>
+            <div className="rounded-sm bg-surface border border-line p-6 md:p-8 relative z-10">
+               <div className="flex gap-2 mb-6">
+                 <div className="w-2.5 h-2.5 rounded-full bg-line-strong"/>
+                 <div className="w-2.5 h-2.5 rounded-full bg-line-strong"/>
+                 <div className="w-2.5 h-2.5 rounded-full bg-accent"/>
                </div>
-               
+
                <div className="space-y-3 font-mono text-xs sm:text-sm overflow-x-auto">
-                 <div className="text-gray-500">{t("about_mission_comment")}</div>
-                 <div className="text-purple-400">const <span className="text-white">devhorses</span> = <span className="text-yellow-300">{"{"}</span></div>
-                 <div className="pl-4 text-cyan-300">trato: <span className="text-green-300">&quot;directo&quot;</span>,</div>
-                 <div className="pl-4 text-cyan-300">entregas: <span className="text-green-300">&quot;semanales&quot;</span>,</div>
-                 <div className="pl-4 text-cyan-300">respuesta: <span className="text-green-300">&quot;24h&quot;</span>,</div>
-                 <div className="pl-4 text-cyan-300">intermediarios: <span className="text-red-400">null</span></div>
-                 <div className="text-yellow-300">{"}"};</div>
+                 <div className="text-faint">{t("about_mission_comment")}</div>
+                 <div className="text-ink">const <span className="text-accent">devhorses</span> = {"{"}</div>
+                 <div className="pl-4 text-muted">trato: <span className="text-ink">&quot;directo&quot;</span>,</div>
+                 <div className="pl-4 text-muted">entregas: <span className="text-ink">&quot;semanales&quot;</span>,</div>
+                 <div className="pl-4 text-muted">respuesta: <span className="text-ink">&quot;inmediata&quot;</span>,</div>
+                 <div className="pl-4 text-muted">intermediarios: <span className="text-accent">null</span></div>
+                 <div className="text-ink">{"}"};</div>
                </div>
             </div>
-            <div className="absolute -top-4 -right-4 w-full h-full border border-white/5 rounded-2xl -z-10 bg-white/5" />
+            <div className="absolute -top-4 -right-4 w-full h-full border border-line rounded-sm -z-10" />
           </motion.div>
         </div>
 
-        {/* PARTE 2: EL ESCUADRÓN (4 COLUMNAS) */}
-        <div className="mb-16 md:mb-32">
-          <motion.div 
+        {/* PARTE 2: EL EQUIPO */}
+        <div className="mb-24 md:mb-36">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-center mb-10 md:mb-16"
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: EASE }}
+            className="flex items-center gap-3 mb-12 md:mb-16"
           >
-             <h2 className="text-3xl font-bold text-white flex items-center justify-center gap-3">
-               <Code2 className="text-cyan-400" /> {t("about_team_title")}
-             </h2>
+             <Code2 className="text-accent" size={22} />
+             <h2 className="font-display text-ink text-2xl md:text-3xl">{t("about_team_title")}</h2>
           </motion.div>
 
-          {/* GRID CONFIGURADO PARA 4 PERSONAS */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {team.map((member, index) => (
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
+                key={member.name}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className={`group p-6 rounded-2xl bg-[#0d121f] border border-white/10 hover:bg-white/5 transition-all duration-300 ${member.border}`}
+                transition={{ duration: 0.7, ease: EASE, delay: index * 0.08 }}
+                viewport={{ once: true, margin: "-40px" }}
+                className="group p-6 rounded-sm bg-surface border border-line hover:border-accent/40 transition-all duration-500"
               >
-                <div className={`mb-6 p-4 rounded-xl bg-white/5 w-fit ${member.color}`}>
+                <div className="mb-6 p-3.5 rounded-sm border border-line w-fit text-accent transition-colors duration-500 group-hover:border-accent/40">
                   {member.icon}
                 </div>
-                
-                <h3 className="text-lg font-bold text-white mb-1">{member.name}</h3>
-                <p className={`text-[10px] font-bold uppercase tracking-wider mb-4 ${member.color}`}>{member.role}</p>
-                <p className="text-gray-400 text-xs mb-6 min-h-15 leading-relaxed">
+
+                <h3 className="font-display text-ink text-lg mb-1">{member.name}</h3>
+                <p className="eyebrow mb-4 text-accent">{member.role}</p>
+                <p className="text-muted text-xs leading-relaxed mb-6 min-h-15">
                   {member.bio}
                 </p>
 
-                <div className="flex gap-3 pt-4 border-t border-white/5">
-                  <SocialBtn icon={<Github size={16}/>} />
-                  <SocialBtn icon={<Linkedin size={16}/>} />
+                <div className="flex gap-3 pt-4 border-t border-line">
+                  <SocialBtn icon={<Github size={15}/>} />
+                  <SocialBtn icon={<Linkedin size={15}/>} />
                 </div>
               </motion.div>
             ))}
@@ -168,23 +150,24 @@ export default function AboutSection() {
         </div>
 
         {/* PARTE 3: CTA FINAL */}
-        <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative p-6 md:p-10 lg:p-16 rounded-3xl overflow-hidden text-center border border-white/10"
+            transition={{ duration: 0.9, ease: EASE }}
+            className="relative p-8 md:p-16 rounded-sm overflow-hidden text-center border border-line"
         >
-            <div className="absolute inset-0 bg-linear-to-br from-cyan-900/20 via-[#0d121f] to-purple-900/20 backdrop-blur-xl z-0" />
-            
+            <div className="absolute inset-0 glow-accent opacity-60 pointer-events-none" />
+
             <div className="relative z-10 flex flex-col items-center">
-                <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mb-6 border border-green-500/20">
-                    <MessageCircle className="text-green-400" size={32} />
+                <div className="w-14 h-14 rounded-full border border-line flex items-center justify-center mb-6 text-accent">
+                    <MessageCircle size={26} />
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <h3 className="font-display text-ink text-3xl md:text-4xl mb-4">
                     {t("cta_title")}
                 </h3>
-                <p className="text-gray-300 mb-8 max-w-xl text-lg">
+                <p className="text-muted mb-10 max-w-xl text-base md:text-lg">
                     {t("cta_desc")}
                 </p>
 
@@ -192,9 +175,9 @@ export default function AboutSection() {
                     href={`https://wa.me/51981916198?text=${encodeURIComponent("Hola DevHorses, me interesa una consultoría gratuita para mi negocio 🚀")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-green-500 text-white font-bold rounded-full hover:bg-green-400 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)] group"
+                    className="btn-accent px-8 py-4 text-base group"
                 >
-                    <MessageCircle size={20} />
+                    <MessageCircle size={18} />
                     {t("cta_btn")}
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </a>
@@ -206,18 +189,18 @@ export default function AboutSection() {
   );
 }
 
-function Stats({ number, label }: { number: string, label: string }) {
+function Stat({ number, label }: { number: string, label: string }) {
   return (
-    <div>
-      <div className="text-3xl font-bold text-white">{number}</div>
-      <div className="text-gray-500 text-sm uppercase tracking-wider">{label}</div>
+    <div className="flex flex-col gap-1">
+      <div className="font-display text-accent text-2xl md:text-3xl">{number}</div>
+      <div className="text-muted text-xs uppercase tracking-wider">{label}</div>
     </div>
   )
 }
 
 function SocialBtn({ icon }: { icon: React.ReactNode }) {
   return (
-    <button className="p-2 rounded-lg bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors">
+    <button className="w-8 h-8 rounded-full border border-line flex items-center justify-center text-muted hover:text-bg hover:bg-accent hover:border-accent transition-all duration-300">
       {icon}
     </button>
   )
