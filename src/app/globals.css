@@ -71,7 +71,12 @@ body {
   background: #22d3ee;
 }
 
-/* --- UTILIDADES DE MARCA --- */
+/* --- UTILIDADES DE MARCA ---
+   Todo lo de abajo vive en @layer components para que los utilitarios
+   de Tailwind (hidden, md:flex, etc.) siempre puedan sobreescribirlas.
+   Sin esto, estas clases sueltas ganan por encima de cualquier utilidad
+   de Tailwind sin importar el breakpoint (bug de CSS cascade layers). */
+@layer components {
 
 .font-display {
   font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
@@ -208,6 +213,8 @@ body {
 .input-editorial:focus {
   border-color: #22d3ee;
 }
+
+} /* fin @layer components */
 
 /* Respeto por usuarios con movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
