@@ -241,10 +241,10 @@ const translations: Record<Language, Translations> = {
     // Testimonials
     testimonials_title: "Lo que dicen nuestros clientes",
     testimonial_1_quote: "Necesitábamos una presencia digital que transmitiera la seriedad de nuestro bufete. DevHorses creó un portal profesional que nos posicionó como referentes en nuestra área. Las consultas online se duplicaron en el primer mes.",
-    testimonial_1_author: "Miguel Vásquez",
+    testimonial_1_author: "Americo Monteza",
     testimonial_1_role: "Socio Fundador, MV Abogados",
     testimonial_2_quote: "Nuestro lodge necesitaba mostrar la experiencia completa que ofrecemos. El sitio que nos construyeron tiene una galería inmersiva y un sistema de reservas que funciona perfecto. Los huéspedes nos dicen que reservaron porque la web les transmitió confianza.",
-    testimonial_2_author: "Andrea Quispe",
+    testimonial_2_author: "Sara Gutierrez",
     testimonial_2_role: "Gerente General, Apu Garden Lodge",
 
     // Contact
@@ -426,10 +426,10 @@ const translations: Record<Language, Translations> = {
     // Testimonials
     testimonials_title: "What Our Clients Say",
     testimonial_1_quote: "We needed a digital presence that conveyed the seriousness of our firm. DevHorses built a professional portal that positioned us as leaders in our field. Online consultations doubled in the first month.",
-    testimonial_1_author: "Miguel Vásquez",
+    testimonial_1_author: "Americo Monteza",
     testimonial_1_role: "Founding Partner, MV Abogados",
     testimonial_2_quote: "Our lodge needed to showcase the full experience we offer. The site they built has an immersive gallery and a booking system that works flawlessly. Guests tell us they booked because the website gave them confidence.",
-    testimonial_2_author: "Andrea Quispe",
+    testimonial_2_author: "Sara Gutierrez",
     testimonial_2_role: "General Manager, Apu Garden Lodge",
 
     // Contact

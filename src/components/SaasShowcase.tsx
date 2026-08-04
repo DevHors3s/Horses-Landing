@@ -101,8 +101,8 @@ export default function SaasShowcase() {
               {t("saas_desc")}
             </motion.p>
 
-            {/* Grid de features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-6 mb-12">
+            {/* Lista de features — una columna, cada item usa todo el ancho disponible */}
+            <div className="flex flex-col gap-6 mb-12">
               {features.map((f, i) => (
                 <motion.div
                   key={f.titleKey}
@@ -110,14 +110,14 @@ export default function SaasShowcase() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.6, ease: EASE, delay: i * 0.06 }}
-                  className="flex gap-3"
+                  className="flex items-start gap-4"
                 >
                   <div className="shrink-0 w-9 h-9 rounded-sm border border-[#3a2a17] bg-[#181209] flex items-center justify-center text-[#d9ad5c]">
                     {f.icon}
                   </div>
                   <div>
                     <h4 className="text-[#f5efe4] text-sm font-semibold mb-1">{t(f.titleKey)}</h4>
-                    <p className="text-[#a89a83] text-xs leading-relaxed">{t(f.descKey)}</p>
+                    <p className="text-[#a89a83] text-xs leading-relaxed max-w-md">{t(f.descKey)}</p>
                   </div>
                 </motion.div>
               ))}
