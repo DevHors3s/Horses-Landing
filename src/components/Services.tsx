@@ -88,7 +88,7 @@ const Services = () => {
 
                 {/* Título */}
                 <h3
-                  className={`col-span-10 md:col-span-6 font-display text-2xl sm:text-3xl md:text-5xl leading-tight transition-all duration-500 ${
+                  className={`col-span-10 md:col-span-6 font-display text-2xl sm:text-3xl md:text-5xl leading-tight transition-[color,transform] duration-500 ${
                     active === index ? "text-accent translate-x-3 md:translate-x-6 italic" : "text-ink"
                   }`}
                 >

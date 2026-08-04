@@ -96,7 +96,7 @@ const Process = () => {
                   <span className="font-mono text-accent text-xs tracking-[0.25em] block mb-3">
                     {step.number}
                   </span>
-                  <h3 className="font-display text-ink text-2xl md:text-4xl mb-4 transition-all duration-500 group-hover:italic group-hover:text-accent">
+                  <h3 className="font-display text-ink text-2xl md:text-4xl mb-4 transition-[color] duration-500 group-hover:italic group-hover:text-accent">
                     {t(step.titleKey)}
                   </h3>
                   <p className="text-muted text-base leading-relaxed max-w-md">
