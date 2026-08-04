@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     description: "Agencia de desarrollo web y aplicaciones en Lima. Webs, tiendas online y apps que generan clientes reales. Consultoría gratuita.",
     images: [
       {
-        url: "/logo-full.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "DevHorses — Desarrollo Web y Apps en Lima",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "DevHorses — Desarrollo Web, Apps & Branding | Lima, Perú",
     description: "Agencia de desarrollo web y aplicaciones en Lima. Webs y apps que generan clientes reales.",
-    images: ["/logo-full.png"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
